@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class penguinlv5 here.
+ * Write a description of class penguinlv9 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class penguinlv5 extends penguin
+public class penguinlv9 extends penguin
 {
-    public penguinlv5(int spenglv,int smergepoints){
-        super(5,16);
+    public penguinlv9(int spenglv,int smergepoints){
+        super(9,256);
     }
     public void act()
     {

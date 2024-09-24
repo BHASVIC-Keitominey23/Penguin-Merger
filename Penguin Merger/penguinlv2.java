@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class penguinlv2 extends penguin
 {
-    /**
-     * Act - do whatever the penguinlv2 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public penguinlv2(int spenglv,int smergepoints){
+        super(2,2);
+    }
+    
     public void act()
     {
         // Add your action code here.

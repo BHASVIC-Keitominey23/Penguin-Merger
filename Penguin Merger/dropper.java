@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class dropper extends Actor
 {
-    /**
-     * Act - do whatever the dropper wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int currentpenguin;
     public void act()
     {
         // Add your action code here.
