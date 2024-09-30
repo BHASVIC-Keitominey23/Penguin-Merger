@@ -14,6 +14,8 @@ public class startgamebutton extends buttons
      */
     public void act()
     {
-        // Add your action code here.
+       if(Greenfoot.mouseClicked(this)){
+           Greenfoot.setWorld(new gamemenu());
+       }
     }
 }

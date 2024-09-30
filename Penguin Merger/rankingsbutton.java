@@ -14,6 +14,8 @@ public class rankingsbutton extends buttons
      */
     public void act()
     {
-        // Add your action code here.
+        if(Greenfoot.mouseClicked(this)){
+           Greenfoot.setWorld(new rankingsmenu());
+       }// Add your action code here.
     }
 }

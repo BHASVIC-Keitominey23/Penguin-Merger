@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class penguinlv2 extends penguin
 {
-    public penguinlv2(int spenglv,int smergepoints){
+    public penguinlv2(){
         super(2,2);
     }
     
