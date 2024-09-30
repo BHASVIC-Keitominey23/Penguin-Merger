@@ -14,6 +14,10 @@ public class pausebutton extends buttons
      */
     public void act()
     {
-        // Add your action code here.
+        if(Greenfoot.mouseClicked(this)){
+            World myWorld = getWorld();
+            myWorld.addObject( new pauseboard(),300,300);
+        }
+            
     }
 }

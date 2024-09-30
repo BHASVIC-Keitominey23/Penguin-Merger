@@ -8,10 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class pauseboard extends Actor
 {
-    /**
-     * Act - do whatever the pauseboard wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    protected GreenfootImage background = null;
+    public pauseboard()
+    {
+        background = new GreenfootImage (100,180);
+        background.setColor(Color.WHITE);
+        background.fillRect(0,0,150,60);
+        setImage(background);
+    }
     public void act()
     {
         // Add your action code here.
