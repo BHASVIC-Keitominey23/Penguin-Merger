@@ -1,30 +1,40 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class pausebutton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class pausebutton extends buttons
 {
     public static boolean paused = false;
+    
+    private pauseboard pauseboard;
+    private remenubutton remenubutton;
+    private resumebutton resumebutton;
+    private startgamebutton startgamebutton;
+    
     public void act()
-    {   World myWorld = getWorld();
+    {   
+        World world = getWorld();
         
-        if((Greenfoot.mouseClicked(this))&&(paused==false)){
+        if((Greenfoot.mouseClicked(this)) && paused==false) {
+            pauseboard = new pauseboard();
+            remenubutton = new remenubutton();
+            resumebutton = new resumebutton();
+            startgamebutton = new startgamebutton();            
+        
+            world.addObject(pauseboard, 300, 200);
+            world.addObject(remenubutton, 400, 250);
+            world.addObject(resumebutton, 200, 250);
+            world.addObject(startgamebutton, 300, 225);
+            
+           
             paused = true;
-        
-            
-            
         }
-        if((Greenfoot.mouseClicked(this))&&(paused==true)){
+
+        else if((Greenfoot.mouseClicked(resumebutton)||(Greenfoot.mouseClicked(this))) && paused==true) {
+            world.removeObject(pauseboard);
+            world.removeObject(remenubutton);
+            world.removeObject(resumebutton);
+            world.removeObject(startgamebutton);
+            
             paused = false;
-            
-            
         }
-            
     }
-    
-    
 }
