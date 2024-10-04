@@ -8,16 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class pausebutton extends buttons
 {
-    /**
-     * Act - do whatever the pausebutton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public static boolean paused = false;
     public void act()
-    {
-        if(Greenfoot.mouseClicked(this)){
-            World myWorld = getWorld();
-            myWorld.addObject( new pauseboard(),300,300);
+    {   World myWorld = getWorld();
+        
+        if((Greenfoot.mouseClicked(this))&&(paused==false)){
+            paused = true;
+        
+            
+            
+        }
+        if((Greenfoot.mouseClicked(this))&&(paused==true)){
+            paused = false;
+            
+            
         }
             
     }
+    
+    
 }

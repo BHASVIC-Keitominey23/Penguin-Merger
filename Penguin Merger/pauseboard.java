@@ -16,8 +16,12 @@ public class pauseboard extends Actor
         background.fillRect(0,0,150,60);
         setImage(background);
     }
-    public void act()
-    {
-        // Add your action code here.
+
+    public void act(){
+         //if(pausebutton.checkpaused()==false){
+            //World myWorld = getWorld();
+            //myWorld.removeObject(this);
+        //}
+        
     }
 }

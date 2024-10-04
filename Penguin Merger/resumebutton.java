@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class resume extends buttons
+public class resumebutton extends buttons
 {
     /**
      * Act - do whatever the resume wants to do. This method is called whenever

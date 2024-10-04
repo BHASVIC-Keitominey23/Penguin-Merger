@@ -22,5 +22,22 @@ public class gamemenu extends World
         mainscoreboard mainscore = new mainscoreboard();
         mainscore.setscore(0);
         addObject(mainscore,50,90);
+        pauseboard pauseboard=new pauseboard();
+        remenubutton remenubutton = new remenubutton();
+        resumebutton resumebutton = new resumebutton();
+        startgamebutton startgamebutton = new startgamebutton();
+        
+        if(pausebutton.paused==true){
+            addObject(pauseboard,300,200);
+            addObject(new remenubutton(),400,250);
+            addObject(new resumebutton(),200,250);
+            addObject(new startgamebutton(),300,225);
+        }
+        if(pausebutton.paused==false){
+            removeObject(pauseboard,300,200);
+            addObject(new remenubutton(),400,250);
+            addObject(new resumebutton(),200,250);
+            addObject(new startgamebutton(),300,225);
+        }
     }
 }
