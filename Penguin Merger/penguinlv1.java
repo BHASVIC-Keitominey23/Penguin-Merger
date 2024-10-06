@@ -14,6 +14,6 @@ public class penguinlv1 extends penguin
     
     public void act()
     {
-        // Add your action code here.
+        super.act();
     }
 }

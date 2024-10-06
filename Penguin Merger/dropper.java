@@ -12,11 +12,11 @@ public class dropper extends Actor
     private int delay = 0;
     public void act()
     {
-        if(Greenfoot.isKeyDown("right"))
+        if(Greenfoot.isKeyDown("right")&&(getX()<480))
         {
             move(5);
         }
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("left")&&(getX()>120))
         {
             move(-5);
         }

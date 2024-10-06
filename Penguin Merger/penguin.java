@@ -6,8 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class penguin extends Actor
 {
     private int mergepoints;
-    private int xvelocity=0;
-    private int yvelocity=40;
+    private int xspeed=0;
+    private int yspeed= 2;
+    private double gravity=1.5;
     private int penglv;
     private boolean falling=true;
     public penguin(int spenglv, int smergepoints)
@@ -20,6 +21,20 @@ public class penguin extends Actor
     
     public void act()
     {
-        // Add your action code here.
+        
+        setLocation(getX() + (int)xspeed, getY() + (int)yspeed);
+        checkcollision();
+        if(falling){
+            yspeed += gravity;
+        }
+        if(falling==false){
+            yspeed = 0;
+        }
+    }
+    public void checkcollision(){
+        if(getY()>340){
+            falling = false;
+        }
+    
     }
 }
