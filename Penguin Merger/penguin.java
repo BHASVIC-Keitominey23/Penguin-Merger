@@ -39,28 +39,36 @@ public class penguin extends Actor
     }
     public void checkcollision(){
         World world = getWorld();
-        if(penglv==1){
-            Actor penguin1 = getOneIntersectingObject(penguinlv1.class);
-            if(penguin1 != null){
-                world.addObject(new penguinlv2(),((this.getX()+(penguin1.getX())/2,((this.getY())+(penguin1.getY()))/2;
-                world.removeObject(this);
+        Actor penguin1 = getOneIntersectingObject(penguinlv1.class);
+        if((penglv==1)&&(penguin1 != null)){
+            
                 world.removeObject(penguin1);
+                world.addObject(new penguinlv2(),getX(),getY());
+                world.removeObject(this);
+            
+                
+                
             }
             
+        
+        else{
+        
+            if(getY()>340){
+                setLocation(getX(),340);
+                falling = false;
+            }
+            if(getX()>480){
+                setLocation(480,getY());
+                xspeed*=-0.7; 
+            }
+            if(getX()<120){
+                setLocation(120,getY());
+                xspeed*=-0.7; 
+                
+            }
         }
         
-        if(getY()>340){
-            falling = false;
-        }
-        if(getX()>480){
-            setLocation(480,getY());
-            xspeed*=-0.7; 
-        }
-        if(getX()<120){
-            setLocation(120,getY());
-            xspeed*=-0.7; 
-            
-        }
+    
         
     
     }
