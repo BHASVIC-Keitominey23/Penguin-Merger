@@ -1,24 +1,38 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class dropper here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class dropper extends Actor
 {
-    private int currentpenguin;
+    private penguin currentpenguin=null;
+    private penguin nextpenguin=null;
     private int delay = 0;
+    private int count = 0;
+    
     public void act()
     {
+        World myWorld = getWorld();
+        if(count==0){
+          updatenext();
+          count++;
+        }
+        
+        if (currentpenguin == null) {
+            currentpenguin = nextpenguin;
+            myWorld.removeObject(nextpenguin);
+            System.out.println("Current penguin is: " + currentpenguin);
+            
+            myWorld.addObject(currentpenguin, getX(), getY() + 10);
+            System.out.println("current penguin Coordinates" + currentpenguin.getX()+ currentpenguin.getY());
+            updatenext();
+        }
+
         if(Greenfoot.isKeyDown("right")&&(getX()<480))
         {
             move(5);
+            currentpenguin.movepenguin(5);
         }
         if(Greenfoot.isKeyDown("left")&&(getX()>120))
         {
             move(-5);
+            currentpenguin.movepenguin(-5);
         }
         if(delay>0)
         {
@@ -26,23 +40,35 @@ public class dropper extends Actor
         }
         else
         {
-          if(Greenfoot.isKeyDown("space")){
-            World myWorld = getWorld();
-            int randomnum=((int)(Math.random()*4))+1;
-            if(randomnum==1){
-              myWorld.addObject(new penguinlv1(),getX(),getY());  
-            }
-            else if(randomnum==2){
-                myWorld.addObject(new penguinlv2(),getX(),getY());      
-            }
-            else if(randomnum==3){
-                myWorld.addObject(new penguinlv3(),getX(),getY());      
-            }
-            else if(randomnum==4){
-                myWorld.addObject(new penguinlv4(),getX(),getY());      
-            }
+          if(Greenfoot.isKeyDown("space"))
+          {
+            currentpenguin.drop();
+            currentpenguin = null;
             delay = 15;
-        }  // Add your action code here.
+            }
         }
+    }
+    private void updatenext(){
+        World myWorld = getWorld();
+        
+        int randomnum=((int)(Math.random()*4))+1;
+        if(randomnum==1){
+              nextpenguin=new penguinlv1(false);  
+            }
+        else if(randomnum==2){
+                nextpenguin=new penguinlv2(false);      
+            }
+        else if(randomnum==3){
+                nextpenguin=new penguinlv3(false);      
+            }
+        else if(randomnum==4){
+                nextpenguin=new penguinlv4(false);      
+            }
+        myWorld.addObject(nextpenguin,530,30);  
+         System.out.println("Next penguin is: " + nextpenguin);
+         System.out.println("next penguin coordinates" + nextpenguin.getX()+ nextpenguin.getY());
+        System.out.println("");
+        System.out.println("");
+        
     }
 }
