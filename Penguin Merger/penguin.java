@@ -42,11 +42,13 @@ public class penguin extends Actor
             move(x);
         }
     }
+    public boolean getfalling(){
+        return falling;
+    }
     
     public void drop(){
         dropped=true;
         falling=true;
-        System.out.println("Drop method called on " + this);
     }
     public void checkcollision(){
         World world = getWorld();

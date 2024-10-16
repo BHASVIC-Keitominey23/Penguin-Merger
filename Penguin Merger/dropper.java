@@ -17,11 +17,8 @@ public class dropper extends Actor
         if (currentpenguin == null) {
             currentpenguin = nextpenguin;
             myWorld.removeObject(nextpenguin);
-            System.out.println("Current penguin is: " + currentpenguin);
-            
-            myWorld.addObject(currentpenguin, getX(), getY() + 10);
-            System.out.println("current penguin Coordinates" + currentpenguin.getX()+ currentpenguin.getY());
             updatenext();
+            myWorld.addObject(currentpenguin, getX(), getY() + 10);
         }
 
         if(Greenfoot.isKeyDown("right")&&(getX()<480))
@@ -40,13 +37,23 @@ public class dropper extends Actor
         }
         else
         {
-          if(Greenfoot.isKeyDown("space"))
+        if(Greenfoot.isKeyDown("space"))
           {
             currentpenguin.drop();
+            wait3secs();
             currentpenguin = null;
+
             delay = 15;
             }
         }
+    }
+    private void wait3secs(){
+        long lastAdded = System.currentTimeMillis();
+        long time =System.currentTimeMillis();
+        while(time < lastAdded + 1500){
+            lastAdded=time;
+        }
+          
     }
     private void updatenext(){
         World myWorld = getWorld();
@@ -65,10 +72,7 @@ public class dropper extends Actor
                 nextpenguin=new penguinlv4(false);      
             }
         myWorld.addObject(nextpenguin,530,30);  
-         System.out.println("Next penguin is: " + nextpenguin);
-         System.out.println("next penguin coordinates" + nextpenguin.getX()+ nextpenguin.getY());
-        System.out.println("");
-        System.out.println("");
+        
         
     }
 }
