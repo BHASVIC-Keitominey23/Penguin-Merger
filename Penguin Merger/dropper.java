@@ -5,10 +5,18 @@ public class dropper extends Actor
     private penguin nextpenguin=null;
     private int delay = 0;
     private int count = 0;
+    private long waittime = 0;
     
     public void act()
     {
         World myWorld = getWorld();
+        if (waittime > 0) {
+            if (System.currentTimeMillis() - waittime >= 500) {
+                waittime = 0; 
+            }
+            return;
+        }
+
         if(count==0){
           updatenext();
           count++;
@@ -40,21 +48,15 @@ public class dropper extends Actor
         if(Greenfoot.isKeyDown("space"))
           {
             currentpenguin.drop();
-            wait3secs();
+            waith();
             currentpenguin = null;
 
             delay = 15;
             }
         }
     }
-    private void wait3secs(){
-        long lastAdded = System.currentTimeMillis();
-        long time =System.currentTimeMillis();
-        while(time < lastAdded + 1500){
-            lastAdded=time;
-        }
-          
-    }
+    private void waith(){
+        waittime = System.currentTimeMillis();}
     private void updatenext(){
         World myWorld = getWorld();
         

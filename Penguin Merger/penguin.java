@@ -15,6 +15,7 @@ public class penguin extends Actor
         mergepoints=smergepoints;
         penglv=spenglv;
         dropped=sdropped;
+
         
         
     }
@@ -112,6 +113,7 @@ public class penguin extends Actor
         else if((penglv==9)&&(penguin9 != null)){
             
                 world.removeObject(penguin9);
+                world.addObject(new penguinlv1(true),getX(),getY());
                 world.removeObject(this);
             }
             
@@ -122,15 +124,16 @@ public class penguin extends Actor
                 setLocation(getX(),340);
                 falling = false;
             }
-            if(getX()>480){
+            else if(getX()>480){
                 setLocation(480,getY());
                 xspeed*=-0.7; 
             }
-            if(getX()<120){
+            else if(getX()<120){
                 setLocation(120,getY());
                 xspeed*=-0.7; 
                 
             }
+            else{falling=true;}
         }
         
     
