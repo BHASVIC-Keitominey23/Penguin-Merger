@@ -1,21 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class gamemenu here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class gamemenu extends World
 {
-
-    /**
-     * Constructor for objects of class gamemenu.
-     * 
-     */
+    private int score = 0;
+    private mainscoreboard mainscore;
+  
     public gamemenu()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         addObject( new pausebutton(),570,30);
         addObject( new dropper(),300,60);
@@ -23,6 +14,46 @@ public class gamemenu extends World
         mainscore.setscore(0);
         addObject(mainscore,50,90);
         
+        
+        
+    }
+    public void updatescore(int level){
+        if(level==1){
+            score=score+1;
+            mainscore.setscore(score);
+        }
+        else if(level==2){
+            score=score+2;
+            mainscore.setscore(score);
+        }
+        else if(level==3){
+            score=score+4;
+            mainscore.setscore(score);
+        }
+        else if(level==4){
+            score=score+8;
+            mainscore.setscore(score);
+        }
+        else if(level==5){
+            score=score+16;
+            mainscore.setscore(score);
+        }
+        else if(level==6){
+            score=score+32;
+            mainscore.setscore(score);
+        }
+        else if(level==7){
+            score=score+64;
+            mainscore.setscore(score);
+        }
+        else if(level==8){
+            score=score+128;
+            mainscore.setscore(score);
+        }
+        else if(level==9){
+            score=score+256;
+            mainscore.setscore(score);
+        }
         
         
     }

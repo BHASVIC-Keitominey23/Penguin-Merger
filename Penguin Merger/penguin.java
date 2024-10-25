@@ -52,7 +52,7 @@ public class penguin extends Actor
         falling=true;
     }
     public void checkcollision(){
-        World world = getWorld();
+        gamemenu world = (gamemenu)getWorld();
         Actor penguin1 = getOneIntersectingObject(penguinlv1.class);
         Actor penguin2 = getOneIntersectingObject(penguinlv2.class);
         Actor penguin3 = getOneIntersectingObject(penguinlv3.class);
@@ -63,55 +63,55 @@ public class penguin extends Actor
         Actor penguin8 = getOneIntersectingObject(penguinlv8.class);
         Actor penguin9 = getOneIntersectingObject(penguinlv9.class);
         if((penglv==1)&&(penguin1 != null)){
-                
+                world.updatescore(penglv);
                 world.removeObject(penguin1);
                 world.addObject(new penguinlv2(true),getX(),getY());
                 world.removeObject(this);
             }
         else if((penglv==2)&&(penguin2 != null)){
-            
+                world.updatescore(penglv);
                 world.removeObject(penguin2);
                 world.addObject(new penguinlv3(true),getX(),getY());
                 world.removeObject(this);
             }
         else if((penglv==3)&&(penguin3 != null)){
-            
+                world.updatescore(penglv);
                 world.removeObject(penguin3);
                 world.addObject(new penguinlv4(true),getX(),getY());
                 world.removeObject(this);
             }
         else if((penglv==4)&&(penguin4 != null)){
-            
+                world.updatescore(penglv);
                 world.removeObject(penguin4);
                 world.addObject(new penguinlv5(true),getX(),getY());
                 world.removeObject(this);
             }
         else if((penglv==5)&&(penguin5 != null)){
-            
+                world.updatescore(penglv);
                 world.removeObject(penguin5);
                 world.addObject(new penguinlv6(true),getX(),getY());
                 world.removeObject(this);
             }
         else if((penglv==6)&&(penguin6 != null)){
-            
+                world.updatescore(penglv);
                 world.removeObject(penguin6);
                 world.addObject(new penguinlv7(true),getX(),getY());
                 world.removeObject(this);
             }
         else if((penglv==7)&&(penguin7 != null)){
-            
+                world.updatescore(penglv);
                 world.removeObject(penguin7);
                 world.addObject(new penguinlv8(true),getX(),getY());
                 world.removeObject(this);
             }
         else if((penglv==8)&&(penguin8 != null)){
-            
+                world.updatescore(penglv);
                 world.removeObject(penguin8);
                 world.addObject(new penguinlv9(true),getX(),getY());
                 world.removeObject(this);
             }
         else if((penglv==9)&&(penguin9 != null)){
-            
+                world.updatescore(penglv);
                 world.removeObject(penguin9);
                 world.addObject(new penguinlv1(true),getX(),getY());
                 world.removeObject(this);
