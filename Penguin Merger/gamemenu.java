@@ -10,7 +10,7 @@ public class gamemenu extends World
         super(600, 400, 1); 
         addObject( new pausebutton(),570,30);
         addObject( new dropper(),300,60);
-        mainscoreboard mainscore = new mainscoreboard();
+        mainscore = new mainscoreboard();
         mainscore.setscore(0);
         addObject(mainscore,50,90);
         
