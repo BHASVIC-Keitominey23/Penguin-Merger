@@ -64,56 +64,74 @@ public class penguin extends Actor
         Actor penguin9 = getOneIntersectingObject(penguinlv9.class);
         if((penglv==1)&&(penguin1 != null)){
                 world.updatescore(penglv);
+                int tx = penguin1.getX();
+                int ty = penguin1.getY();
                 world.removeObject(penguin1);
-                world.addObject(new penguinlv2(true),getX(),getY());
+                world.addObject(new penguinlv2(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
         else if((penglv==2)&&(penguin2 != null)){
                 world.updatescore(penglv);
+                int tx = penguin2.getX();
+                int ty = penguin2.getY();
                 world.removeObject(penguin2);
-                world.addObject(new penguinlv3(true),getX(),getY());
+                world.addObject(new penguinlv3(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
         else if((penglv==3)&&(penguin3 != null)){
                 world.updatescore(penglv);
+                int tx = penguin3.getX();
+                int ty = penguin3.getY();
                 world.removeObject(penguin3);
-                world.addObject(new penguinlv4(true),getX(),getY());
+                world.addObject(new penguinlv4(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
         else if((penglv==4)&&(penguin4 != null)){
                 world.updatescore(penglv);
+                int tx = penguin4.getX();
+                int ty = penguin4.getY();
                 world.removeObject(penguin4);
-                world.addObject(new penguinlv5(true),getX(),getY());
+                world.addObject(new penguinlv5(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
         else if((penglv==5)&&(penguin5 != null)){
                 world.updatescore(penglv);
+                int tx = penguin5.getX();
+                int ty = penguin5.getY();
                 world.removeObject(penguin5);
-                world.addObject(new penguinlv6(true),getX(),getY());
+                world.addObject(new penguinlv6(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
         else if((penglv==6)&&(penguin6 != null)){
                 world.updatescore(penglv);
+                int tx = penguin6.getX();
+                int ty = penguin6.getY();
                 world.removeObject(penguin6);
-                world.addObject(new penguinlv7(true),getX(),getY());
+                world.addObject(new penguinlv7(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
         else if((penglv==7)&&(penguin7 != null)){
                 world.updatescore(penglv);
+                int tx = penguin7.getX();
+                int ty = penguin7.getY();
                 world.removeObject(penguin7);
-                world.addObject(new penguinlv8(true),getX(),getY());
+                world.addObject(new penguinlv8(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
         else if((penglv==8)&&(penguin8 != null)){
                 world.updatescore(penglv);
+                int tx = penguin8.getX();
+                int ty = penguin8.getY();
                 world.removeObject(penguin8);
-                world.addObject(new penguinlv9(true),getX(),getY());
+                world.addObject(new penguinlv9(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
         else if((penglv==9)&&(penguin9 != null)){
                 world.updatescore(penglv);
+                int tx = penguin9.getX();
+                int ty = penguin9.getY();
                 world.removeObject(penguin9);
-                world.addObject(new penguinlv1(true),getX(),getY());
+                world.addObject(new penguinlv1(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
             }
             
