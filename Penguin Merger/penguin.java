@@ -5,7 +5,7 @@ public class penguin extends Actor
     private int mergepoints;
     private int xspeed=0000;
     private int yspeed=0000;
-    private double friction=16;
+    private double friction=18;
     private double gravity=800;
     private int penglv;
     private boolean falling=false;
@@ -42,6 +42,12 @@ public class penguin extends Actor
     }
     public boolean getfalling(){
         return falling;
+    }
+    public int getxspeed(){
+        return xspeed;
+    }
+    public int getyspeed(){
+        return yspeed;
     }
     
     public void drop(){
@@ -134,6 +140,32 @@ public class penguin extends Actor
             
         
         else{
+            
+            penguin otherpenguin = (penguin)getOneIntersectingObject(penguin.class);
+            if(otherpenguin!=null){
+                double dx = otherpenguin.getX() - getX();
+                double dy = otherpenguin.getY() - getY();
+                double distance = Math.sqrt(dx * dx + dy * dy);
+                double nx = dx / distance;
+                double ny = dy / distance;
+                double dvx = otherpenguin.xspeed - xspeed;
+                double dvy = otherpenguin.yspeed - yspeed;
+                double dotProduct = dvx * nx + dvy * ny;
+                if (dotProduct > 0) {return;}
+                double collisionScale = dotProduct;
+                xspeed += collisionScale * nx;
+                yspeed += collisionScale * ny;
+                otherpenguin.xspeed -= collisionScale * nx;
+                otherpenguin.yspeed -= collisionScale * ny;
+                double radius = (getImage().getWidth())/2;
+                double otherradius =(otherpenguin.getImage().getWidth())/2;
+                double overlap = (radius + otherradius - distance) / 2.0;
+                int correctionX = (int) (nx * overlap);
+                int correctionY = (int) (ny * overlap);
+                
+                setLocation(getX() - correctionX, getY() - correctionY);
+                otherpenguin.setLocation(otherpenguin.getX() + correctionX, otherpenguin.getY() + correctionY);
+            }
         
             if(getY()>340){
                 setLocation(getX(),340);
