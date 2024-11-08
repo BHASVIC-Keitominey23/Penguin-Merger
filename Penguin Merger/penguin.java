@@ -15,9 +15,7 @@ public class penguin extends Actor
         mergepoints=smergepoints;
         penglv=spenglv;
         dropped=sdropped;
-
-        
-        
+    
     }
     
     public void act()
@@ -28,7 +26,7 @@ public class penguin extends Actor
         if(falling){
             yspeed += gravity;
         }
-        else if(falling==false){
+        else{
             yspeed = 0;
             if(xspeed>0){
             xspeed -= friction;
@@ -39,8 +37,7 @@ public class penguin extends Actor
     public void movepenguin(int x)
     {
         if(!dropped){
-            
-            move(x);
+             move(x);
         }
     }
     public boolean getfalling(){
