@@ -5,7 +5,7 @@ public class penguin extends Actor
     private int mergepoints;
     private int xspeed=0000;
     private int yspeed=0000;
-    private double friction=18;
+    private double friction=30;
     private double gravity=800;
     private int penglv;
     private boolean falling=false;
@@ -143,6 +143,7 @@ public class penguin extends Actor
             
             penguin otherpenguin = (penguin)getOneIntersectingObject(penguin.class);
             if(otherpenguin!=null){
+               
                 double dx = otherpenguin.getX() - getX();
                 double dy = otherpenguin.getY() - getY();
                 double distance = Math.sqrt(dx * dx + dy * dy);
@@ -160,15 +161,23 @@ public class penguin extends Actor
                 double radius = (getImage().getWidth())/2;
                 double otherradius =(otherpenguin.getImage().getWidth())/2;
                 double overlap = (radius + otherradius - distance) / 2.0;
-                int correctionX = (int) (nx * overlap);
-                int correctionY = (int) (ny * overlap);
+                int correctionX = (int) (nx * overlap *2);
+                int correctionY = (int) (ny * overlap*2);
                 
                 setLocation(getX() - correctionX, getY() - correctionY);
+                if(getY()>340){
+                setLocation(getX(),340);
+                yspeed=0;
+                otherpenguin.yspeed=0;
+                falling = false;
+                    }
                 otherpenguin.setLocation(otherpenguin.getX() + correctionX, otherpenguin.getY() + correctionY);
+                xspeed*=0.4;            
             }
         
             if(getY()>340){
                 setLocation(getX(),340);
+                yspeed=0;
                 falling = false;
             }
             else if(getX()>480){
