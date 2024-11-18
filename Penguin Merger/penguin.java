@@ -3,6 +3,7 @@ import greenfoot.*;
 public class penguin extends Actor
 {
     private int mergepoints;
+    private int mass;
     private int xspeed=0000;
     private int yspeed=0000;
     private double friction=30;
@@ -10,11 +11,12 @@ public class penguin extends Actor
     private int penglv;
     private boolean falling=false;
     public boolean dropped;
-    public penguin(int spenglv, int smergepoints, boolean sdropped)
+    public penguin(int spenglv, int smergepoints, boolean sdropped,int smass)
     {
         mergepoints=smergepoints;
         penglv=spenglv;
         dropped=sdropped;
+        mass=smass;
     
     }
     
@@ -25,6 +27,7 @@ public class penguin extends Actor
         checkcollision();
         if(falling){
             yspeed += gravity;
+
         }
         else{
             yspeed = 0;
@@ -50,9 +53,23 @@ public class penguin extends Actor
         return yspeed;
     }
     
+    public int getMass(){
+        return mass;
+    }
     public void drop(){
         dropped=true;
         falling=true;
+    }
+     private boolean isResting() {
+        return Math.abs(xspeed) < 50 && Math.abs(yspeed) < 50; // Threshold velocity
+    }
+    
+    private void updateRestingState() {
+        if (isResting() && !falling) {
+            xspeed = 0;
+            yspeed = 0;
+            falling = false;
+        }
     }
     public void checkcollision(){
         gamemenu world = (gamemenu)getWorld();
@@ -147,37 +164,32 @@ public class penguin extends Actor
                 double dx = otherpenguin.getX() - getX();
                 double dy = otherpenguin.getY() - getY();
                 double distance = Math.sqrt(dx * dx + dy * dy);
-                double nx = dx / distance;
-                double ny = dy / distance;
-                double dvx = otherpenguin.xspeed - xspeed;
-                double dvy = otherpenguin.yspeed - yspeed;
-                double dotProduct = dvx * nx + dvy * ny;
-                if (dotProduct > 0) {return;}
-                double collisionScale = dotProduct;
-                xspeed += collisionScale * nx;
-                yspeed += collisionScale * ny;
-                otherpenguin.xspeed -= collisionScale * nx;
-                otherpenguin.yspeed -= collisionScale * ny;
                 double radius = (getImage().getWidth())/2;
                 double otherradius =(otherpenguin.getImage().getWidth())/2;
                 double overlap = (radius + otherradius - distance) / 2.0;
-                int correctionX = (int) (nx * overlap *2);
-                int correctionY = (int) (ny * overlap*2);
+                double nx = dx / distance;
+                double ny = dy / distance;
+                double maxCorrection = 5.0;
+                int correctionX = (int) Math.min(nx * overlap, maxCorrection);
+                int correctionY = (int) Math.min(ny * overlap, maxCorrection);
+                setLocation(getX() - correctionX / 2, getY() - correctionY / 2);
+                otherpenguin.setLocation(otherpenguin.getX() + correctionX / 2, otherpenguin.getY() + correctionY / 2);
+                double dvx = otherpenguin.xspeed - xspeed;
+                double dvy = otherpenguin.yspeed - yspeed;
+                double dotProduct = dvx * nx + dvy * ny;
+                if (dotProduct < 0) {
+                    xspeed += dotProduct * nx;
+                    yspeed += dotProduct * ny;
+                    otherpenguin.xspeed -= dotProduct * nx;
+                    otherpenguin.yspeed -= dotProduct * ny;
+                }
                 
-                setLocation(getX() - correctionX, getY() - correctionY);
-                if(getY()>340){
-                setLocation(getX(),340);
-                yspeed=0;
-                otherpenguin.yspeed=0;
-                falling = false;
-                    }
-                otherpenguin.setLocation(otherpenguin.getX() + correctionX, otherpenguin.getY() + correctionY);
-                xspeed*=0.4;            
+                
             }
         
             if(getY()>340){
                 setLocation(getX(),340);
-                yspeed=0;
+                yspeed *= -0.7;
                 falling = false;
             }
             else if(getX()>480){
