@@ -25,6 +25,7 @@ public class penguin extends Actor
         if(dropped){
         setLocation(getX() + (int)xspeed/1000, getY() + (int)yspeed/1000);
         checkcollision();
+        checkspeed();
         if(falling){
             yspeed += gravity;
 
@@ -60,17 +61,22 @@ public class penguin extends Actor
         dropped=true;
         falling=true;
     }
-     private boolean isResting() {
-        return Math.abs(xspeed) < 50 && Math.abs(yspeed) < 50; // Threshold velocity
+    
+    public void checkspeed(){
+        if (xspeed>20000){
+            xspeed=20000;
+        }
+        if(yspeed>20000){
+            yspeed=20000;
+        }
+        if(yspeed<50){
+            yspeed=0;
+        }
+        
+        
     }
     
-    private void updateRestingState() {
-        if (isResting() && !falling) {
-            xspeed = 0;
-            yspeed = 0;
-            falling = false;
-        }
-    }
+    
     public void checkcollision(){
         gamemenu world = (gamemenu)getWorld();
         Actor penguin1 = getOneIntersectingObject(penguinlv1.class);
@@ -169,21 +175,28 @@ public class penguin extends Actor
                 double overlap = (radius + otherradius - distance) / 2.0;
                 double nx = dx / distance;
                 double ny = dy / distance;
-                double maxCorrection = 5.0;
-                int correctionX = (int) Math.min(nx * overlap, maxCorrection);
-                int correctionY = (int) Math.min(ny * overlap, maxCorrection);
-                setLocation(getX() - correctionX / 2, getY() - correctionY / 2);
-                otherpenguin.setLocation(otherpenguin.getX() + correctionX / 2, otherpenguin.getY() + correctionY / 2);
+                double maxcorrection = 5.0;
+                int xcorrection = (int) Math.min(nx * overlap, maxcorrection);
+                int ycorrection = (int) Math.min(ny * overlap, maxcorrection);
+                setLocation(getX() - xcorrection / 2, getY() - ycorrection / 2);
+                otherpenguin.setLocation(otherpenguin.getX() + xcorrection / 2, otherpenguin.getY() + ycorrection / 2);
                 double dvx = otherpenguin.xspeed - xspeed;
                 double dvy = otherpenguin.yspeed - yspeed;
-                double dotProduct = dvx * nx + dvy * ny;
-                if (dotProduct < 0) {
-                    xspeed += dotProduct * nx;
-                    yspeed += dotProduct * ny;
-                    otherpenguin.xspeed -= dotProduct * nx;
-                    otherpenguin.yspeed -= dotProduct * ny;
+                double dotproduct = dvx * nx + dvy * ny;
+                if (dotproduct < 0) {
+                    xspeed += dotproduct * nx;
+                    yspeed += dotproduct * ny;
+                    otherpenguin.xspeed -= dotproduct * nx;
+                    otherpenguin.yspeed -= dotproduct * ny;
                 }
-                
+                xspeed -= 10;
+                otherpenguin.xspeed -= 10;
+                yspeed -= 10;
+                otherpenguin.yspeed -= 10;
+                if((yspeed<100)&&(falling)){
+                   yspeed=0; 
+                   falling=false;
+                }
                 
             }
         
