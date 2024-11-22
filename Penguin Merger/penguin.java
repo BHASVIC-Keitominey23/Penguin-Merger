@@ -11,6 +11,7 @@ public class penguin extends Actor
     private int penglv;
     private boolean falling=false;
     public boolean dropped;
+    private boolean e;
     public penguin(int spenglv, int smergepoints, boolean sdropped,int smass)
     {
         mergepoints=smergepoints;
@@ -189,14 +190,22 @@ public class penguin extends Actor
                     otherpenguin.xspeed -= dotproduct * nx;
                     otherpenguin.yspeed -= dotproduct * ny;
                 }
-                xspeed -= 10;
-                otherpenguin.xspeed -= 10;
-                yspeed -= 10;
-                otherpenguin.yspeed -= 10;
-                if((yspeed<100)&&(falling)){
+                
+                xspeed *= 0.99;
+                otherpenguin.xspeed *= 0.99;
+                yspeed *= 0.99;
+                otherpenguin.yspeed *= 0.99;
+                
+                if((yspeed<100)&&(falling)&&otherpenguin.yspeed<100&&otherpenguin.falling){
                    yspeed=0; 
+                   otherpenguin.yspeed=0;
                    falling=false;
+                   otherpenguin.falling=false;
+                   e=true;
                 }
+                else{e=false;
+                otherpenguin.falling=true;
+                falling=true;}
                 
             }
         
@@ -214,7 +223,9 @@ public class penguin extends Actor
                 xspeed*=-0.7; 
                 
             }
-            else{falling=true;}
+            else{
+                if(!e){
+                falling=true;}}
         }
         
     
