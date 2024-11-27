@@ -195,8 +195,9 @@ public class penguin extends Actor
                 otherpenguin.xspeed *= 0.99;
                 yspeed *= 0.99;
                 otherpenguin.yspeed *= 0.99;
+                double thresh = 10;
                 
-                if((yspeed<100)&&(falling)&&otherpenguin.yspeed<100&&otherpenguin.falling){
+                if(thresh>Math.abs(dotproduct)){
                    yspeed=0; 
                    otherpenguin.yspeed=0;
                    falling=false;
