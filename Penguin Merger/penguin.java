@@ -67,10 +67,7 @@ public class penguin extends Actor
     public int getyspeed(){
         return yspeed;
     }
-    
-    public int getMass(){
-        return mass;
-    }
+
     public void drop(){
         dropped=true;
         falling=true;
@@ -239,12 +236,10 @@ public class penguin extends Actor
                 
             }
             else{
-               
-                falling=true;}
+                
+                falling=true;      
+            }
+            }
         }
-        
-    
-        
-    
     }
-}
+
