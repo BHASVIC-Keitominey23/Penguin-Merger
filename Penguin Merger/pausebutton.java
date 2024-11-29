@@ -2,12 +2,13 @@ import greenfoot.*;
 
 public class pausebutton extends buttons
 {
-    public static boolean paused = false;
+    public boolean paused = false;
     
     private pauseboard pauseboard;
     private remenubutton remenubutton;
     private resumebutton resumebutton;
     private startgamebutton startgamebutton;
+    private gamemenu gamemenu;
     
     public void act()
     {   
@@ -25,7 +26,7 @@ public class pausebutton extends buttons
             world.addObject(startgamebutton, 300, 225);
             
            
-            paused = true;
+            paused=true;
         }
 
         else if((Greenfoot.mouseClicked(resumebutton)||(Greenfoot.mouseClicked(this))) && paused==true) {
@@ -34,7 +35,8 @@ public class pausebutton extends buttons
             world.removeObject(resumebutton);
             world.removeObject(startgamebutton);
             
-            paused = false;
+            paused=false;
         }
     }
+  
 }

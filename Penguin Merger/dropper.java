@@ -48,15 +48,14 @@ public class dropper extends Actor
         if(Greenfoot.isKeyDown("space"))
           {
             currentpenguin.drop();
-            waith();
+            waittime = System.currentTimeMillis();
             currentpenguin = null;
 
             delay = 15;
             }
         }
     }
-    private void waith(){
-        waittime = System.currentTimeMillis();}
+    
     private void updatenext(){
         World myWorld = getWorld();
         

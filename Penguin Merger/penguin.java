@@ -2,6 +2,8 @@ import greenfoot.*;
 
 public class penguin extends Actor
 {
+    private gamemenu gamemenu;
+    private limit limit;
     private int mergepoints;
     private int mass;
     private int xspeed=0000;
@@ -12,8 +14,10 @@ public class penguin extends Actor
     private boolean falling=false;
     public boolean dropped;
     private boolean e;
+    private long waittime = 0;
     public penguin(int spenglv, int smergepoints, boolean sdropped,int smass)
     {
+       
         mergepoints=smergepoints;
         penglv=spenglv;
         dropped=sdropped;
@@ -23,7 +27,11 @@ public class penguin extends Actor
     
     public void act()
     {
+        Actor limit = getOneIntersectingObject(limit.class);
+        
         if(dropped){
+        
+        
         setLocation(getX() + (int)xspeed/1000, getY() + (int)yspeed/1000);
         checkcollision();
         checkspeed();
@@ -32,6 +40,11 @@ public class penguin extends Actor
 
         }
         else{
+            
+        if(limit!=null&&dropped&&!falling){
+            gamemenu world = (gamemenu)getWorld();
+            world.removeObject(this);
+        }
             yspeed = 0;
             if(xspeed>0){
             xspeed -= friction;
@@ -128,6 +141,7 @@ public class penguin extends Actor
                 world.removeObject(penguin5);
                 world.addObject(new penguinlv6(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
+
             }
         else if((penglv==6)&&(penguin6 != null)){
                 world.updatescore(penglv);
@@ -195,7 +209,7 @@ public class penguin extends Actor
                 otherpenguin.xspeed *= 0.99;
                 yspeed *= 0.99;
                 otherpenguin.yspeed *= 0.99;
-                double thresh = 10;
+                double thresh = 15;
                 
                 if(thresh>Math.abs(dotproduct)){
                    yspeed=0; 
@@ -225,8 +239,8 @@ public class penguin extends Actor
                 
             }
             else{
-                if(!e){
-                falling=true;}}
+               
+                falling=true;}
         }
         
     

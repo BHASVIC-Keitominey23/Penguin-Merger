@@ -4,11 +4,14 @@ public class gamemenu extends World
 {
     private int score = 0;
     private mainscoreboard mainscore;
+    private pausebutton pause;
+    public boolean paused=false;
   
     public gamemenu()
     {    
         super(600, 400, 1); 
-        addObject( new pausebutton(),570,30);
+        pause = new pausebutton();
+        addObject(pause,570,30);
         addObject( new dropper(),300,60);
         mainscore = new mainscoreboard();
         mainscore.setscore(0);
@@ -16,6 +19,9 @@ public class gamemenu extends World
         
         
         
+    }
+    public void setpause(boolean val){
+        paused=val;
     }
     public void updatescore(int level){
         if(level==1){
