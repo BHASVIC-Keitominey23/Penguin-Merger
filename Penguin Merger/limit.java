@@ -14,6 +14,6 @@ public class limit extends Actor
      */
     public void act()
     {
-        setImage((GreenfootImage)null);
+        //setImage((GreenfootImage)null);
     }
 }
