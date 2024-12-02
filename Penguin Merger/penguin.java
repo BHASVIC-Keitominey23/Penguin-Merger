@@ -28,6 +28,9 @@ public class penguin extends Actor
     public void act()
     {
         
+        
+        
+        
         if(dropped){
         
         
@@ -40,10 +43,7 @@ public class penguin extends Actor
         }
         else{
             
-        //if(limit!=null&&dropped&&!falling){
-            //gamemenu world = (gamemenu)getWorld();
-            //world.removeObject(this);
-        //}
+       
             yspeed = 0;
             if(xspeed>0){
             xspeed -= friction;
@@ -205,11 +205,10 @@ public class penguin extends Actor
                 otherpenguin.xspeed *= 0.99;
                 yspeed *= 0.99;
                 otherpenguin.yspeed *= 0.99;
-                double thresh = 15;
+                double thresh = 10;
                 Actor limit = getOneIntersectingObject(limit.class);
                 if(limit!=null){
-                
-                world.gameover();
+                    Greenfoot.setWorld(new gameovermenu(world.score));
                 }
                 
                 if(thresh>Math.abs(dotproduct)){
@@ -240,6 +239,7 @@ public class penguin extends Actor
                 xspeed*=-0.7; 
                 
             }
+            
             else{
                 
                 falling=true;      

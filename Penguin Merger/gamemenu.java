@@ -2,28 +2,28 @@ import greenfoot.*;
 
 public class gamemenu extends World
 {
-    private int score = 0;
+    public int score = 0;
     private mainscoreboard mainscore;
     private pausebutton pause;
-    private gameover gameover;
     public boolean paused=false;
   
     public gamemenu()
     {    
-        super(600, 400, 1); 
+        super(600, 400, 1);
+        addObject(new limit(),140,70);
+        addObject(new limit(),200,70);
+        addObject(new limit(),260,70);
+        addObject(new limit(),320,70);
+        addObject(new limit(),380,70);
+        addObject(new limit(),450,70);
+    
         pause = new pausebutton();
         addObject(pause,570,30);
         addObject( new dropper(),300,50);
         mainscore = new mainscoreboard();
         mainscore.setscore(0);
         addObject(mainscore,50,90);
-        addObject(new limit(),140,60);
-        addObject(new limit(),200,60);
-        addObject(new limit(),260,60);
-        addObject(new limit(),320,60);
-        addObject(new limit(),380,60);
-        addObject(new limit(),450,60);
-    
+        
         
         
         
@@ -31,16 +31,7 @@ public class gamemenu extends World
     public void setpause(boolean val){
         paused=val;
     }
-    public void gameover(){
-        addObject(new gameoverdisplay(),300,100);
-        addObject(new remenubutton(),200,300);
-        addObject(new startgamebutton(),300,250);
-        addObject(new rankingsbutton(),400,300);
-        gameover=new gameover();
-        gameover.setscore(score);
-        addObject(gameover,300,225);
-        
-    }
+  
     public void updatescore(int level){
         if(level==1){
             score=score+1;
