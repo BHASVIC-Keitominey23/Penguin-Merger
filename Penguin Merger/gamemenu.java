@@ -5,7 +5,7 @@ public class gamemenu extends World
     public int score = 0;
     private mainscoreboard mainscore;
     private pausebutton pause;
-    public boolean paused=false;
+    
   
     public gamemenu()
     {    
@@ -28,9 +28,7 @@ public class gamemenu extends World
         
         
     }
-    public void setpause(boolean val){
-        paused=val;
-    }
+    
   
     public void updatescore(int level){
         if(level==1){

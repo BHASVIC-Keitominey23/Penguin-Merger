@@ -72,7 +72,7 @@ public class dropper extends Actor
         else if(randomnum==4){
                 nextpenguin=new penguinlv4(false);      
             }
-        myWorld.addObject(nextpenguin,530,30);  
+        myWorld.addObject(nextpenguin,560,150);  
         
         
     }
