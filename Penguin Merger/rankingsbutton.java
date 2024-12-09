@@ -1,21 +1,16 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class rankingsbutton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class rankingsbutton extends buttons
 {
-    /**
-     * Act - do whatever the rankingsbutton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int score;
+    public rankingsbutton(int sscore){
+        score=sscore;
+    }
     public void act()
     {
         if(Greenfoot.mouseClicked(this)){
-           Greenfoot.setWorld(new rankingsmenu());
+           Greenfoot.setWorld(new rankingsmenu(score));
        }
     }
 }

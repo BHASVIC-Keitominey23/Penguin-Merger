@@ -10,12 +10,12 @@ public class gamemenu extends World
     public gamemenu()
     {    
         super(600, 400, 1);
-        addObject(new limit(),140,70);
-        addObject(new limit(),200,70);
-        addObject(new limit(),260,70);
-        addObject(new limit(),320,70);
-        addObject(new limit(),380,70);
-        addObject(new limit(),450,70);
+        addObject(new limit(),140,60);
+        addObject(new limit(),200,60);
+        addObject(new limit(),260,60);
+        addObject(new limit(),320,60);
+        addObject(new limit(),380,60);
+        addObject(new limit(),450,60);
     
         pause = new pausebutton();
         addObject(pause,570,30);

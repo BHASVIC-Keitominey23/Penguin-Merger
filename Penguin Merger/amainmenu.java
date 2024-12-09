@@ -18,6 +18,6 @@ public class amainmenu extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         addObject( new startgamebutton(),300,200);
-        addObject( new rankingsbutton(),300,300);
+        addObject( new rankingsbutton(0),300,300);
     }
 }
