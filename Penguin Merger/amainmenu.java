@@ -1,21 +1,10 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class mainmenu here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class amainmenu extends World
 {
-
-    /**
-     * Constructor for objects of class mainmenu.
-     * 
-     */
     public amainmenu()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         addObject( new startgamebutton(),300,200);
         addObject( new rankingsbutton(),300,300);

@@ -7,12 +7,12 @@ public class rankingsmenu extends World
     {    
         super(600, 400, 1);
 
-        addObject( new remenubutton(),540,340);
+        addObject(new remenubutton(),540,340);
         GreenfootImage newImage = new GreenfootImage("aice.png"); 
         newImage.scale(600, 400); 
         setBackground(newImage);
         
-        int[] topscores = scores.getinstance().getscores();
+        int[] topscores = scores.getmainscores().getscores();
 
         showText("Top 10 Scores:",300,50);
         for (int i=0;i<10;i++) {

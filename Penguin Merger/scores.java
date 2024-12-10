@@ -3,20 +3,20 @@ import greenfoot.*;
 
 public class scores extends Actor
 {
-    private static scores instance;
+    private static scores mainscores;
     private int[] topscores;
     public scores()
     {
         topscores = new int[10];
         for (int i=0;i<topscores.length;i++){
-        topscores[i]=-1;
+            topscores[i]=-1;
             }
         }
-    public static scores getinstance() {
-        if (instance == null) {
-            instance = new scores();
+    public static scores getmainscores() {
+        if (mainscores == null) {
+            mainscores = new scores();
         }
-        return instance;
+        return mainscores;
     }
     public void addscore(int newscore){
         for(int i=0;i<9;i++){

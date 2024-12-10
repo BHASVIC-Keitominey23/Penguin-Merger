@@ -17,7 +17,7 @@ public class gameovermenu extends World
         gameover=new gameover();
         gameover.setscore(score);
         addObject(gameover,300,225);
-        scores.getinstance().addscore(score);
+        scores.getmainscores().addscore(score);
       
         
        
