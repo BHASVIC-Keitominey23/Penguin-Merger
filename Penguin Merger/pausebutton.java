@@ -36,6 +36,7 @@ public class pausebutton extends buttons
             world.removeObject(startgamebutton);
             
             paused=false;
+    
         }
     }
   

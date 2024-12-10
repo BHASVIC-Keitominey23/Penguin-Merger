@@ -1,9 +1,10 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 
 public class gameover extends Actor
 {
     protected GreenfootImage background = null;
+    private rankingsmenu ranking;
     public gameover()
     {
         background = new GreenfootImage (100,180);
@@ -18,8 +19,5 @@ public class gameover extends Actor
         img.drawString("You scored: \n   " + score, 30, 20);
         setImage(img);
     }
-    public void act()
-    {
-        // Add your action code here.
-    }
+    
 }

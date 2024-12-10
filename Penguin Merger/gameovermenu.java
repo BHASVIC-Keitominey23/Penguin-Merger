@@ -13,14 +13,14 @@ public class gameovermenu extends World
         addObject(new gameoverdisplay(),300,100);
         addObject(new remenubutton(),200,300);
         addObject(new startgamebutton(),300,350);
-        addObject(new rankingsbutton(score),400,300);
+        addObject(new rankingsbutton(),400,300);
         gameover=new gameover();
         gameover.setscore(score);
         addObject(gameover,300,225);
+        scores.getinstance().addscore(score);
+      
         
        
     }
-    public void setrankingsmenu(rankingsmenu srankingsmenu){
-        rankingsmenu = srankingsmenu;
-    }
+   
 }
