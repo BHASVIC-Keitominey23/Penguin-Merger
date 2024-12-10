@@ -8,10 +8,10 @@ public class scores extends Actor
     public scores()
     {
         topscores = new int[10];
-        for(int i=0;i<10;i++){
-            topscores[i] = 0;
+        for (int i=0;i<topscores.length;i++){
+        topscores[i]=-1;
+            }
         }
-    }
     public static scores getinstance() {
         if (instance == null) {
             instance = new scores();
