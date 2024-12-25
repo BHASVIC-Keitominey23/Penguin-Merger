@@ -15,6 +15,7 @@ public class penguin extends Actor
     public boolean dropped;
     private boolean e;
     private long waittime = 0;
+
     public penguin(int spenglv, int smergepoints, boolean sdropped,int smass)
     {
        
@@ -22,6 +23,7 @@ public class penguin extends Actor
         penglv=spenglv;
         dropped=sdropped;
         mass=smass;
+
     
     }
     
@@ -223,19 +225,23 @@ public class penguin extends Actor
                 falling=true;}
                 
             }
+            int height = getImage().getHeight();
+            int butt = getY() + height / 2;
+            int width = getImage().getWidth();
+            int left = getX() - width / 2;
+            int right = getX() + width / 2;
             
-        
-            if(getY()>340){
-                setLocation(getX(),340);
+            if(butt>365){
+                setLocation(getX(),365-height/2);
                 yspeed *= -0.7;
                 falling = false;
             }
-            else if(getX()>480){
-                setLocation(480,getY());
+            else if(right>480){
+                setLocation(480 - width / 2, getY());
                 xspeed*=-0.7; 
             }
-            else if(getX()<120){
-                setLocation(120,getY());
+            else if(left<120){
+                setLocation(120 + width / 2, getY());
                 xspeed*=-0.7; 
                 
             }

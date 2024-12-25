@@ -13,7 +13,9 @@ public class dropper extends Actor
         if (waittime > 0) {
             if (System.currentTimeMillis() - waittime >= 500) {
                 waittime = 0; 
+                setImage("crane1.png");
             }
+            
             return;
         }
 
@@ -26,15 +28,15 @@ public class dropper extends Actor
             currentpenguin = nextpenguin;
             myWorld.removeObject(nextpenguin);
             updatenext();
-            myWorld.addObject(currentpenguin, getX(), getY() + 10);
+            myWorld.addObject(currentpenguin, getX(), getY()+50);
         }
 
-        if(Greenfoot.isKeyDown("right")&&(getX()<480))
+        if(Greenfoot.isKeyDown("right")&&(getX()<470))
         {
             move(5);
             currentpenguin.movepenguin(5);
         }
-        if(Greenfoot.isKeyDown("left")&&(getX()>120))
+        if(Greenfoot.isKeyDown("left")&&(getX()>130))
         {
             move(-5);
             currentpenguin.movepenguin(-5);
@@ -47,6 +49,7 @@ public class dropper extends Actor
         {
         if(Greenfoot.isKeyDown("space"))
           {
+            setImage("Crane2.png");
             currentpenguin.drop();
             waittime = System.currentTimeMillis();
             currentpenguin = null;

@@ -16,9 +16,14 @@ public class gamemenu extends World
         addObject(new limit(),320,60);
         addObject(new limit(),380,60);
         addObject(new limit(),450,60);
+        addObject(new plat(0),300,375);
+        addObject(new plat(0),300,392);
+        addObject(new plat(90),110,235);
+        addObject(new plat(90),490,235);
+        
     
         pause = new pausebutton();
-        addObject(pause,570,30);
+        addObject(pause,562,37);
         addObject( new dropper(),300,50);
         mainscore = new mainscoreboard();
         mainscore.setscore(0);
