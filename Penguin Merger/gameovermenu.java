@@ -9,14 +9,17 @@ public class gameovermenu extends World
     public gameovermenu(int sscore)
     {    
         super(600, 400, 1);
+        GreenfootImage newImage = new GreenfootImage("gameoverback.jpg"); 
+        newImage.scale(600, 400); 
+        setBackground(newImage);
         score = sscore;
-        addObject(new gameoverdisplay(),300,100);
+        addObject(new gameoverdisplay(),300,70);
         addObject(new remenubutton(),100,325);
-        addObject(new startgamebutton(),300,250);
-        addObject(new rankingsbutton(),470,340);
+        addObject(new startgamebutton(),300,275);
+        addObject(new rankingsbutton(),480,340);
         gameover=new gameover();
         gameover.setscore(score);
-        addObject(gameover,300,225);
+        addObject(gameover,300,170);
         scores.getmainscores().addscore(score);
       
         

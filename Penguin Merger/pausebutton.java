@@ -21,9 +21,9 @@ public class pausebutton extends buttons
             startgamebutton = new startgamebutton();            
         
             //world.addObject(pauseboard, 300, 200);
-            world.addObject(remenubutton, 400, 250);
+            world.addObject(remenubutton, 450, 310);
             world.addObject(resumebutton, 300, 235);
-            world.addObject(startgamebutton, 200, 250);
+            world.addObject(startgamebutton, 150, 310);
             
            
             paused=true;

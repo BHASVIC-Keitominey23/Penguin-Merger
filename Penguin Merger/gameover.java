@@ -1,23 +1,26 @@
 import greenfoot.*;
 
-
-public class gameover extends Actor
-{
+public class gameover extends Actor {
     protected GreenfootImage background = null;
-    private rankingsmenu ranking;
-    public gameover()
-    {
-        background = new GreenfootImage (100,180);
-        background.setColor(Color.WHITE);
-        background.fillRect(0,0,150,60);
+
+    public gameover() {
+        background = new GreenfootImage(200, 100);
+     
+        background.setColor(new Color(200, 230, 255));
+        background.fill();
+        background.setColor(new Color(100, 150, 200));
+        for (int i = 0; i < 5; i++) {
+            background.drawRect(i, i, 200 - i * 2 - 1, 100 - i * 2 - 1);
+        }
         setImage(background);
     }
-    public void setscore(int score)
-    {
-        GreenfootImage img = new GreenfootImage (background);
+
+    public void setscore(int score) {
+        GreenfootImage img = new GreenfootImage(background);
         img.setColor(Color.BLACK);
-        img.drawString("You scored: \n   " + score, 30, 20);
+        img.setFont(new Font("SansSerif", 18));
+        img.drawString("You Scored:", 50, 40);
+        img.drawString("" + score, 90, 70);
         setImage(img);
     }
-    
 }

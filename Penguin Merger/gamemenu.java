@@ -11,11 +11,18 @@ public class gamemenu extends World
     {    
         super(600, 400, 1);
         addObject(new limit(),140,60);
-        addObject(new limit(),200,60);
+        addObject(new limit(),180,60);
+        addObject(new limit(),220,60);
         addObject(new limit(),260,60);
-        addObject(new limit(),320,60);
+        addObject(new limit(),300,60);
+        addObject(new limit(),340,60);
         addObject(new limit(),380,60);
-        addObject(new limit(),450,60);
+        addObject(new limit(),420,60);
+        addObject(new limit(),460,60);
+        
+        addObject(new next(),550,100);
+    
+        
         addObject(new plat(0),300,375);
         addObject(new plat(0),300,392);
         addObject(new plat(90),110,235);
@@ -27,7 +34,7 @@ public class gamemenu extends World
         addObject( new dropper(),300,50);
         mainscore = new mainscoreboard();
         mainscore.setscore(0);
-        addObject(mainscore,50,90);
+        addObject(mainscore,50,50);
         
         
         
