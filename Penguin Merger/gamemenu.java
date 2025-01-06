@@ -31,7 +31,7 @@ public class gamemenu extends World
     
         pause = new pausebutton();
         addObject(pause,562,37);
-        addObject( new dropper(),300,50);
+        addObject( new dropper(),300,40);
         mainscore = new mainscoreboard();
         mainscore.setscore(0);
         addObject(mainscore,50,50);

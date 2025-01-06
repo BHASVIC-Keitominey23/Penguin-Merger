@@ -1,4 +1,4 @@
-import greenfoot.*; 
+import greenfoot.*;
 
 public class penguin extends Actor
 {
@@ -36,7 +36,7 @@ public class penguin extends Actor
         if(dropped){
         
         
-        setLocation(getX() + (int)xspeed/1000, getY() + (int)yspeed/1000);
+        setLocation(getX() + (int)xspeed/2000, getY() + (int)yspeed/1000);
         checkcollision();
         checkspeed();
         if(falling){
@@ -44,12 +44,15 @@ public class penguin extends Actor
 
         }
         else{
-            
+            xspeed*=0.99;
        
             yspeed = 0;
-            if(xspeed>0){
-            xspeed -= friction;
-        }
+            turn((int)xspeed/500);
+            if(Math.abs(xspeed)<50){
+              xspeed=0;  
+            }
+            
+        
         }
     }
     }
@@ -238,11 +241,11 @@ public class penguin extends Actor
             }
             else if(right>480){
                 setLocation(480 - width / 2, getY());
-                xspeed*=-0.7; 
+                xspeed*=-0.8; 
             }
             else if(left<120){
                 setLocation(120 + width / 2, getY());
-                xspeed*=-0.7; 
+                xspeed*=-0.8; 
                 
             }
             
