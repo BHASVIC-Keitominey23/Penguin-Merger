@@ -48,10 +48,6 @@ public class penguin extends Actor
        
             yspeed = 0;
             turn((int)xspeed/500);
-            if(Math.abs(xspeed)<50){
-              xspeed=0;  
-            }
-            
         
         }
     }
@@ -78,16 +74,18 @@ public class penguin extends Actor
     }
     
     public void checkspeed(){
-        if (xspeed>20000){
+        if (Math.abs(xspeed)>20000){
             xspeed=20000;
         }
-        if(yspeed>20000){
+        if(Math.abs(yspeed)>20000){
             yspeed=20000;
         }
-        if(yspeed<50){
+        if(Math.abs(yspeed)<50){
             yspeed=0;
         }
-        
+        if(Math.abs(xspeed)<50){
+              xspeed=0;  
+            }
         
     }
     

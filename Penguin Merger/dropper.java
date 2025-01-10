@@ -54,7 +54,7 @@ public class dropper extends Actor
             waittime = System.currentTimeMillis();
             currentpenguin = null;
 
-            delay = 15;
+            delay = 10;
             }
         }
     }
