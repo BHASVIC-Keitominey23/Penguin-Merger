@@ -6,7 +6,7 @@ public class dropper extends Actor
     private int delay = 0;
     private int count = 0;
     private long waittime = 0;
-    private GreenfootSound drop = new GreenfootSound("drop.wav");
+    
     
     
     public void act()
@@ -41,10 +41,10 @@ public class dropper extends Actor
         }
 
        if(Greenfoot.isKeyDown("s")){
-           music.playsweat();
+           sounds.playsweat();
        }
        if(Greenfoot.isKeyDown("c")){
-           music.playchill();
+           sounds.playchill();
        }
         
     
@@ -63,7 +63,7 @@ public class dropper extends Actor
           {
             setImage("Crane2.png");
             currentpenguin.drop();
-            drop.play();
+            sounds.drop();
             waittime = System.currentTimeMillis();
             currentpenguin = null;
 

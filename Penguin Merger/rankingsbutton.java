@@ -8,6 +8,7 @@ public class rankingsbutton extends buttons
     public void act()
     {
         if(Greenfoot.mouseClicked(this)){
+        sounds.cleek();
            Greenfoot.setWorld(new rankingsmenu());
        }
     }

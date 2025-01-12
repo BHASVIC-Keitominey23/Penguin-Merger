@@ -1,6 +1,6 @@
 import greenfoot.*; 
 
-public class music extends Actor
+public class sounds extends Actor
 {
     public static boolean chillplaying = false;
     public static boolean sweatplaying = false;
@@ -8,6 +8,9 @@ public class music extends Actor
     private static GreenfootSound chill = new GreenfootSound("chill.wav");
     private static GreenfootSound sad = new GreenfootSound("sad.wav");
     private static GreenfootSound sweat = new GreenfootSound("sweat.wav");
+    private static GreenfootSound drop = new GreenfootSound("drop.wav");
+    private static GreenfootSound pop = new GreenfootSound("pop.wav");
+    private static GreenfootSound cleek = new GreenfootSound("cleek.wav");
     public static void playchill()
     {
         if(!chillplaying){
@@ -45,5 +48,13 @@ public class music extends Actor
         }
        
     }
-    
+    public static void drop(){
+        drop.play();
+    }
+    public static void pop(){
+        pop.play();
+    }
+    public static void cleek(){
+        cleek.play();
+    }
 }

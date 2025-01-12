@@ -35,8 +35,8 @@ public class gamemenu extends World
         mainscore = new mainscoreboard();
         mainscore.setscore(0);
         addObject(mainscore,50,50);
-        if(music.sadplaying==true){
-            music.playchill();
+        if(sounds.sadplaying==true){
+            sounds.playchill();
         }
         
         

@@ -15,7 +15,7 @@ public class penguin extends Actor
     public boolean dropped;
     private boolean e;
     private long waittime = 0;
-    private GreenfootSound pop = new GreenfootSound("pop.wav");
+    
 
     public penguin(int spenglv, int smergepoints, boolean sdropped,int smass)
     {
@@ -109,7 +109,7 @@ public class penguin extends Actor
                 world.removeObject(penguin1);
                 world.addObject(new penguinlv2(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
         else if((penglv==2)&&(penguin2 != null)){
                 world.updatescore(penglv);
@@ -118,7 +118,7 @@ public class penguin extends Actor
                 world.removeObject(penguin2);
                 world.addObject(new penguinlv3(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
         else if((penglv==3)&&(penguin3 != null)){
                 world.updatescore(penglv);
@@ -127,7 +127,7 @@ public class penguin extends Actor
                 world.removeObject(penguin3);
                 world.addObject(new penguinlv4(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
         else if((penglv==4)&&(penguin4 != null)){
                 world.updatescore(penglv);
@@ -136,7 +136,7 @@ public class penguin extends Actor
                 world.removeObject(penguin4);
                 world.addObject(new penguinlv5(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
         else if((penglv==5)&&(penguin5 != null)){
                 world.updatescore(penglv);
@@ -145,7 +145,7 @@ public class penguin extends Actor
                 world.removeObject(penguin5);
                 world.addObject(new penguinlv6(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
         else if((penglv==6)&&(penguin6 != null)){
                 world.updatescore(penglv);
@@ -154,7 +154,7 @@ public class penguin extends Actor
                 world.removeObject(penguin6);
                 world.addObject(new penguinlv7(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
         else if((penglv==7)&&(penguin7 != null)){
                 world.updatescore(penglv);
@@ -163,7 +163,7 @@ public class penguin extends Actor
                 world.removeObject(penguin7);
                 world.addObject(new penguinlv8(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
         else if((penglv==8)&&(penguin8 != null)){
                 world.updatescore(penglv);
@@ -172,7 +172,7 @@ public class penguin extends Actor
                 world.removeObject(penguin8);
                 world.addObject(new penguinlv9(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
         else if((penglv==9)&&(penguin9 != null)){
                 world.updatescore(penglv);
@@ -181,7 +181,7 @@ public class penguin extends Actor
                 world.removeObject(penguin9);
                 world.addObject(new penguinlv1(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
-                pop.play();
+                sounds.pop();
             }
             
         

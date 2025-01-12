@@ -9,7 +9,7 @@ public class gameovermenu extends World
     public gameovermenu(int sscore)
     {    
         super(600, 400, 1);
-        music.playsad();
+        sounds.playsad();
         GreenfootImage newImage = new GreenfootImage("gameoverback.jpg"); 
         newImage.scale(600, 400); 
         setBackground(newImage);
