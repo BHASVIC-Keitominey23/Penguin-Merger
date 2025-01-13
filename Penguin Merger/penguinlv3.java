@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class penguinlv3 extends penguin
 {
     public penguinlv3(boolean sdropped){
-        super(3,4,sdropped,3);
+        super(3,4,sdropped);
     }
     public void act()
     {
