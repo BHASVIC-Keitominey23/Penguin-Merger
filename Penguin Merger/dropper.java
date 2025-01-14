@@ -1,81 +1,82 @@
 import greenfoot.*;
 public class dropper extends Actor
 {
-    private penguin currentpenguin=null;
-    private penguin nextpenguin=null;
-    private int delay = 0;
-    private int count = 0;
-    private long waittime = 0;
-    
-    
-    
+    private penguin currentpenguin=null; //Stores the current penguin about to be dropped
+    private penguin nextpenguin=null;    //Stores the next penguin to be dropped
+    private int count = 0; //Defines counter variable for first penguin
+    private long waittime = 0; //Defines time waited as 0.
     public void act()
     {
-        World myWorld = getWorld();
-        if (waittime > 0) {
-            if (System.currentTimeMillis() - waittime >= 500) {
+        World myWorld = getWorld(); //Stores current world
+        if (waittime > 0) 
+            {   //If full time hasn't elapsed yet
+            if (System.currentTimeMillis() - waittime >= 500) //If 0.5 seconds have passed
+            {
                 waittime = 0; 
-                setImage("crane1.png");
+                setImage("crane1.png");//Changes image to closed crane
                 
             }
             
             return;
-        }
+            }
 
-        if(count==0){
+        if(count==0)
+        { //First penguin defined 
           updatenext();
           count++;
         }
-        
-        if (currentpenguin == null) {
+        //Sets the next penguin as the current penguin if there is no current penguin
+        if (currentpenguin == null){
             currentpenguin = nextpenguin;
             myWorld.removeObject(nextpenguin);
             updatenext();
             myWorld.addObject(currentpenguin, getX(), getY()+50);
         }
-
+        //Move the penguin right if right arrow key pressed and not too far right
         if(Greenfoot.isKeyDown("right")&&(getX()<470))
         {
             move(5);
+            //Penguin being held by the dropper follows
             currentpenguin.movepenguin(5);
         }
-
-       if(Greenfoot.isKeyDown("s")){
+       //Calls the corresponding background music function from the sound class depending on the key
+       if(Greenfoot.isKeyDown("s"))
+       {
            sounds.playsweat();
        }
-       if(Greenfoot.isKeyDown("c")){
+       if(Greenfoot.isKeyDown("c"))
+       {
            sounds.playchill();
        }
         
-    
+        //Move the dropper and penguin being held if  left key pressed and not too far left    
         if(Greenfoot.isKeyDown("left")&&(getX()>130))
         {
             move(-5);
             currentpenguin.movepenguin(-5);
         }
-        if(delay>0)
-        {
-            delay--;
-        }
+        
         else
         {
+        //Drops the penguin if space bar pressed
         if(Greenfoot.isKeyDown("space"))
           {
             setImage("Crane2.png");
             currentpenguin.drop();
-            sounds.drop();
-            waittime = System.currentTimeMillis();
-            currentpenguin = null;
+            sounds.drop(); //Play the drop sound
+            waittime = System.currentTimeMillis();//Starts the timer
+            currentpenguin = null; //Resets the current penguin to null as it has been dropped
 
-            delay = 10;
+           
             }
         }
     }
-    
-    private void updatenext(){
+    //Procedure which sets another current penguin
+    private void updatenext()
+    {
         World myWorld = getWorld();
-        
-        int randomnum=((int)(Math.random()*4))+1;
+        int randomnum=((int)(Math.random()*4))+1; //Generates a random number between 1 to 4
+        //Sets the next penguin as a new undropped penguin of the level of the random number
         if(randomnum==1){
               nextpenguin=new penguinlv1(false);  
             }

@@ -3,20 +3,17 @@ import greenfoot.*;
 public class pausebutton extends buttons
 {
     public boolean paused = false;
-    
-    private pauseboard pauseboard;
     private remenubutton remenubutton;
     private resumebutton resumebutton;
     private startgamebutton startgamebutton;
-    private gamemenu gamemenu;
     
     public void act()
     {   
         World world = getWorld();
         
-        if((Greenfoot.mouseClicked(this)) && paused==false) {
+        if((Greenfoot.mouseClicked(this)) && paused==false)
+        {
             sounds.cleek();
-            pauseboard = new pauseboard();
             remenubutton = new remenubutton();
             resumebutton = new resumebutton();
             startgamebutton = new startgamebutton();            
@@ -29,9 +26,9 @@ public class pausebutton extends buttons
             paused=true;
         }
 
-        else if((Greenfoot.mouseClicked(resumebutton)||(Greenfoot.mouseClicked(this))) && paused==true) {
+        else if((Greenfoot.mouseClicked(resumebutton)||(Greenfoot.mouseClicked(this))) && paused==true) 
+        {
             sounds.cleek();
-            world.removeObject(pauseboard);
             world.removeObject(remenubutton);
             world.removeObject(resumebutton);
             world.removeObject(startgamebutton);

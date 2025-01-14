@@ -6,16 +6,17 @@ public class penguin extends Actor
     private int mergepoints;     //Points earned per merge
     private int xspeed=0000;     //Horizontal speed
     private int yspeed=0000;     //Vertical speed
-    private int gravity=600;     //Speed gained due to gravity when falling
+    private int gravity;     //Speed gained due to gravity when falling
     private int penglv;          //Penguin level
     private boolean falling=false;//Falling flag
     public boolean dropped;       //Dropped flag
 
-    public penguin(int spenglv, int smergepoints, boolean sdropped)//constructor
+    public penguin(int spenglv, int smergepoints, boolean sdropped, int sgravity)//constructor
         {
            mergepoints=smergepoints;
            penglv=spenglv;
            dropped=sdropped;
+           gravity=sgravity;
         }
     
 

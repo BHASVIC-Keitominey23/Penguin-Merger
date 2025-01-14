@@ -35,7 +35,10 @@ public class gamemenu extends World
         mainscore = new mainscoreboard();
         mainscore.setscore(0);
         addObject(mainscore,50,50);
-        if(sounds.sadplaying==true){
+        
+        //Changes the music from sad to chill if it isn't already playing
+        if(sounds.sadplaying==true)
+        {
             sounds.playchill();
         }
         
@@ -44,7 +47,7 @@ public class gamemenu extends World
         
     }
     
-  
+    //Procedure to add points to the main score depending on the level of merge
     public void updatescore(int level){
         if(level==1){
             score=score+1;
