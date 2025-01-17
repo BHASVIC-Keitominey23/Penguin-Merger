@@ -22,24 +22,28 @@ public class penguin extends Actor
 
     public void act()
         {
-            if(dropped){
+            if(dropped)
+            {
                 setLocation(getX() + (int)xspeed/2000, getY() + (int)yspeed/1000);//Moves the penguin by its speed values
-                checkcollision();
-                checkspeed();
-                if(falling){
+                checkcollision();//Responds to collisions with an object of any other class
+                checkspeed();//Updates speed
+                if(falling)
+                {
                     yspeed += gravity;
                 }
-                else{
-                xspeed*=0.99;//Penguins lose speed due to fricion with floor
-                yspeed = 0;  //Penguins don't bounce
-                turn((int)xspeed/500); //Turning animation
+                else
+                {
+                    xspeed*=0.99;//Penguins lose speed due to fricion with floor
+                    yspeed = 0;  //Penguins don't bounce
+                    turn((int)xspeed/500); //Turning animation
         
                 }
             }
         }
     public void movepenguin(int x)
     {
-        if(!dropped){
+        if(!dropped)
+        {
              move(x);//The penguins are only moved by the dropper before dropped
         }
     }
@@ -49,7 +53,8 @@ public class penguin extends Actor
         falling=true;
     }
     
-    public void checkspeed(){//Makes sure speed doesn't get too high or low
+    public void checkspeed()
+    {//Makes sure speed doesn't get too high or low
         if (Math.abs(xspeed)>20000)
         {
             xspeed=20000;
@@ -85,7 +90,8 @@ public class penguin extends Actor
         Actor penguin8 = getOneIntersectingObject(penguinlv8.class);
         Actor penguin9 = getOneIntersectingObject(penguinlv9.class);
         //Checks if the two touching penguins are of the same level. If they are, then a merge happens.
-        if((penglv==1)&&(penguin1 != null)){
+        if((penglv==1)&&(penguin1 != null))
+        {
                 world.updatescore(penglv); //Adds the points of the merge to the main score
                 int tx = penguin1.getX();  //Temporarily stores the x and y coordinates of the other penguin.
                 int ty = penguin1.getY();
@@ -94,8 +100,10 @@ public class penguin extends Actor
                 world.removeObject(this);
                 //Removes both penguins
                 sounds.pop();//Calls the sound object to play the pop sound
-            }
-        else if((penglv==2)&&(penguin2 != null)){
+        }
+        //Other penguin merges have very similar logic
+        else if((penglv==2)&&(penguin2 != null))
+        {
                 world.updatescore(penglv);
                 int tx = penguin2.getX();
                 int ty = penguin2.getY();
@@ -103,8 +111,9 @@ public class penguin extends Actor
                 world.addObject(new penguinlv3(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
                 sounds.pop();
-            }
-        else if((penglv==3)&&(penguin3 != null)){
+        }
+        else if((penglv==3)&&(penguin3 != null))
+        {
                 world.updatescore(penglv);
                 int tx = penguin3.getX();
                 int ty = penguin3.getY();
@@ -112,8 +121,9 @@ public class penguin extends Actor
                 world.addObject(new penguinlv4(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
                 sounds.pop();
-            }
-        else if((penglv==4)&&(penguin4 != null)){
+        }
+        else if((penglv==4)&&(penguin4 != null))
+        {
                 world.updatescore(penglv);
                 int tx = penguin4.getX();
                 int ty = penguin4.getY();
@@ -121,8 +131,9 @@ public class penguin extends Actor
                 world.addObject(new penguinlv5(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
                 sounds.pop();
-            }
-        else if((penglv==5)&&(penguin5 != null)){
+        }
+        else if((penglv==5)&&(penguin5 != null))
+        {
                 world.updatescore(penglv);
                 int tx = penguin5.getX();
                 int ty = penguin5.getY();
@@ -130,8 +141,9 @@ public class penguin extends Actor
                 world.addObject(new penguinlv6(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
                 sounds.pop();
-            }
-        else if((penglv==6)&&(penguin6 != null)){
+        }
+        else if((penglv==6)&&(penguin6 != null))
+        {
                 world.updatescore(penglv);
                 int tx = penguin6.getX();
                 int ty = penguin6.getY();
@@ -139,8 +151,9 @@ public class penguin extends Actor
                 world.addObject(new penguinlv7(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
                 sounds.pop();
-            }
-        else if((penglv==7)&&(penguin7 != null)){
+        }
+        else if((penglv==7)&&(penguin7 != null))
+        {
                 world.updatescore(penglv);
                 int tx = penguin7.getX();
                 int ty = penguin7.getY();
@@ -148,8 +161,9 @@ public class penguin extends Actor
                 world.addObject(new penguinlv8(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
                 sounds.pop();
-            }
-        else if((penglv==8)&&(penguin8 != null)){
+        }
+        else if((penglv==8)&&(penguin8 != null))
+        {
                 world.updatescore(penglv);
                 int tx = penguin8.getX();
                 int ty = penguin8.getY();
@@ -157,8 +171,9 @@ public class penguin extends Actor
                 world.addObject(new penguinlv9(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
                 sounds.pop();
-            }
-        else if((penglv==9)&&(penguin9 != null)){
+        }
+        else if((penglv==9)&&(penguin9 != null))
+        {
                 world.updatescore(penglv);
                 int tx = penguin9.getX();
                 int ty = penguin9.getY();
@@ -166,14 +181,14 @@ public class penguin extends Actor
                 world.addObject(new penguinlv1(true),(getX()+tx)/2,(getY()+ty)/2);
                 world.removeObject(this);
                 sounds.pop();
-            }
+        }
             
         
         else
             {
                 //Checks if another penguin that isn't of the same type is intersecting
                 penguin otherpenguin = (penguin)getOneIntersectingObject(penguin.class);
-                if(otherpenguin!=null)
+                if(otherpenguin!=null)//There is a penguin of another level intersecting
                 {
                     //Calculates the hoizontal and vertical distances between the penguins
                     double dx = otherpenguin.getX() - getX();
@@ -202,12 +217,12 @@ public class penguin extends Actor
                     double dotproduct = dvx * nx + dvy * ny;
                     //Adjusts the velocities if the dot product is negative
                     if (dotproduct < 0) 
-                        {
+                    {
                         xspeed += dotproduct * nx;
                         yspeed += dotproduct * ny;
                         otherpenguin.xspeed -= dotproduct * nx;
                         otherpenguin.yspeed -= dotproduct * ny;
-                        }
+                    }
                     //Applies friction due to collision
                     xspeed *= 0.99;
                     otherpenguin.xspeed *= 0.99;
@@ -216,43 +231,45 @@ public class penguin extends Actor
                     //Checks if the penguin is touching the limit and ends the game if true
                     Actor limit = getOneIntersectingObject(limit.class);
                     if(limit!=null)
-                        {
+                    {
                         Greenfoot.setWorld(new gameovermenu(world.score));
-                        }
+                    }
                     //Sets the penguin to not falling if the dot product is below the threshold
-                    if(150>Math.abs(dotproduct))
-                        {
-                           yspeed=0; 
-                           otherpenguin.yspeed=0;
-                           falling=false;
-                           otherpenguin.falling=false;
+                    if(150>dotproduct)
+                    {
+                        yspeed=0; 
+                        otherpenguin.yspeed=0;
+                        falling=false;
+                        otherpenguin.falling=false;
                        
-                        }
+                    }
                     else
-                        {
-                            otherpenguin.falling=true;
-                            falling=true;
-                        }
+                    {
+                        otherpenguin.falling=true;
+                        falling=true;
+                    }
                     
             }
-            int height = getImage().getHeight();
-            int butt = getY() + height / 2; //Calculates bottom of penguin
-            int width = getImage().getWidth(); 
-            int left = getX() - width / 2;  //Calculates left side of penguin
-            int right = getX() + width / 2; //Calculates right side of penguin
+            int height = getImage().getHeight(); //Gets height of image
+            int butt = getY() + height / 2; //Calculates y coordinate of bottom of penguin
+            int width = getImage().getWidth(); //Gets width of image
+            int left = getX() - width / 2;  //Calculates x coordinate of left side of penguin
+            int right = getX() + width / 2; //Calculates x coordinate of right side of penguin
             
-            if(butt>365){   //If below floor
+            if(butt>365)
+            {   //If below floor
                 setLocation(getX(),365-height/2);   //Adjust to on the floor
                 falling = false;
             }
-            else if(right>480){ //If touching right wall
+            else if(right>480)
+            { //If touching right wall
                 setLocation(480 - width / 2, getY());   //Adjusts to right wall
                 xspeed*=-0.8; //Applies friction due to collision
             }
-            else if(left<120){
+            else if(left<120)
+            {//If touching left wall
                 setLocation(120 + width / 2, getY());   //Adjusts to left wall
                 xspeed*=-0.8; //Applies friction due to collision
-                
             }
             
             else{
